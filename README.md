@@ -59,38 +59,51 @@ git reset --hard origin/master
 git pull origin master --force
 ```
 
-8. Open the glitch console and execute:
+8. Open the glitch console for your project and generate a new SSH key with:
 
 `ssh-keygen`
 
-8. Copy the content of the `.ssh/id_rsa.pub` file with
+9. Copy the content of the `.ssh/id_rsa.pub` file with
 
 `cat .ssh/id_rsa.pub`
 
-9. Create a new Github repo with a `README.me` file
-10. Go to the 'deploy keys' section of the settings page
-11. Click on 'add deploy key' and add the `id_rsa.pub` string in the key field; set the title to 'glitch'.
-12. Check the 'Allow write access' box too.
-13. Go to the settings page of your project, open the webhooks section and add a new webhook
+10. Create a new Github repo with a `README.me` file (it's important that the project is not empty)
+11. Go to the 'deploy keys' section of the settings page of your project.
+12. Click on 'Add deploy key' and add the SSH key you generated before in the key field and 'glitch.com' in the title field.
+13. Check the 'Allow write access' box too.
+14. Now open the webhooks section and add a new webhook:
 
-- Payload URL: https://PROJECT_NAME.glitch.me/git
-- Content type: `application/json`
-- Secret: use the SECRET you set up in your glitch project
-- The rest of the defaults are ok
-    - Enable SSL verification
-    - Just the push event.
-    - Active
+- **Payload URL**: https://PROJECT_NAME.glitch.me/git
+- **Content type**: `application/json`
+- **Secret**: use the SECRET you set up in your glitch project
+- The rest of the defaults are ok.
+    
+15. Go back to your glitch project and click export your project to GitHub
+16. Clone your repo in your dev machine and merge the `glitch` branch with master:
 
+`git merge glitch`
 
-14. Go to glitch and click on tools > Git, import, export > export to GitHub
-15. Clone your repo in your dev machine and merge the `glitch` branch
-16. Go back to the glitch console and add the github remote:
+17. In the glitch console set the remote origin to the master branch of your github project:
 
-`
+```bash
 git remote add origin git@github.com:USERNAME/PROJECT.git
 git branch --set-upstream-to=origin/master master
-`
+```
 
-17. On your dev machine, do a `git push`
+18. In your dev machine, add a dummy test file (like `hello.txt`) and commit it.
+19. Push the changes with `git push`. 
+
+If everything is ok, your glitch project should be updated and a hello.text file should apper in the list of files. If you don't see the file, checkout the log of your glitch project and open an issue here.
+
+### Updating your project from github to glitch
+
+This should be the default method of updating your project. Develop in your dev machine, commit the changes and do a `git push`
+
+### Updating your project from glitch to github
+
+If you change something in glitch, you'll need to first export your project to github and then merge the `glitch` branch with your master branch.
+
+
+
 
 
