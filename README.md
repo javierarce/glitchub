@@ -112,7 +112,11 @@ This should be the default method of updating your project. Develop in your dev 
 
 If you change something in glitch, you'll need to first export your project to github and then merge the `glitch` branch with your master branch.
 
+---
 
+### Credits
+
+The overall solution (including the `git.sh` and webhook sync code) comes from [this post by @jarvis394 on the glitch forum](https://support.glitch.com/t/tutorial-how-to-auto-update-your-project-with-github/8124)
 
 
 
