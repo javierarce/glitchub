@@ -43,8 +43,11 @@ const onWebhook = (req, res) => {
 app.post('/git', onWebhook)
 ```
 
-6. Open the `.env` file and set a SECRET
-7. Create a `git.sh` file and add
+6. Open the `.env` file and set a SECRET:
+
+`SECRET=cirrus-socrates-particle-decibel-hurricane-dolphin-tulip`
+
+7. Create a `git.sh` file and add:
 
 ```bash
 #/bin/sh
@@ -59,15 +62,21 @@ git reset --hard origin/master
 git pull origin master --force
 ```
 
+This file will be in charge of pulling the changes from your Github repo.
+
 8. Open the glitch console for your project and generate a new SSH key with:
 
 `ssh-keygen`
 
-9. Copy the content of the `.ssh/id_rsa.pub` file with
+Just press `<Enter>` to accept all the questions.
+
+9. Read the content of the `.ssh/id_rsa.pub` file:
 
 `cat .ssh/id_rsa.pub`
 
-10. Create a new Github repo with a `README.me` file (it's important that the project is not empty)
+Then copy the string to your clipboard.
+
+10. Create a new Github repo with a `README.me` file (or any other file, it's important that the project is not empty)
 11. Go to the 'deploy keys' section of the settings page of your project.
 12. Click on 'Add deploy key' and add the SSH key you generated before in the key field and 'glitch.com' in the title field.
 13. Check the 'Allow write access' box too.
@@ -78,7 +87,7 @@ git pull origin master --force
 - **Secret**: use the SECRET you set up in your glitch project
 - The rest of the defaults are ok.
     
-15. Go back to your glitch project and click export your project to GitHub
+15. Go back to your glitch project and click export your project to GitHub.
 16. Clone your repo in your dev machine and merge the `glitch` branch with master:
 
 `git merge glitch`
@@ -93,13 +102,13 @@ git branch --set-upstream-to=origin/master master
 18. In your dev machine, add a dummy test file (like `hello.txt`) and commit it.
 19. Push the changes with `git push`. 
 
-If everything is ok, your glitch project should be updated and a hello.text file should apper in the list of files. If you don't see the file, checkout the log of your glitch project and open an issue here.
+If everything is ok, your glitch project should be updated and a `hello.txt` file should appear in the list of files. If you don't see it, checkout the log of your glitch project.
 
-### Updating your project from github to glitch
+## Updating your project from github to glitch
 
 This should be the default method of updating your project. Develop in your dev machine, commit the changes and do a `git push`
 
-### Updating your project from glitch to github
+## Updating your project from glitch to github
 
 If you change something in glitch, you'll need to first export your project to github and then merge the `glitch` branch with your master branch.
 
