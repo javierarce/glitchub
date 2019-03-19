@@ -96,7 +96,9 @@ cat .ssh/id_rsa.pub
 15. Go back to your glitch project and click export your project to GitHub.
 16. Clone your repo in your dev machine and merge the `glitch` branch with master:
 
-`git merge glitch`
+```bash 
+git merge glitch
+```
 
 17. In the glitch console set the remote origin to the master branch of your github project:
 
