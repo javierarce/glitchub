@@ -24,23 +24,28 @@ const bodyParser = require('body-parser');
 
 ```js
 const onWebhook = (req, res) => {
-  let hmac = crypto.createHmac('sha1', process.env.SECRET)
-  let sig  = `sha1=${hmac.update(JSON.stringify(req.body)).digest('hex')}`
+  let hmac = crypto.createHmac('sha1', process.env.SECRET);
+  let sig  = `sha1=${hmac.update(JSON.stringify(req.body)).digest('hex')}`;
 
-  if (req.headers['x-github-event'] == 'push' && sig == req.headers['x-hub-signature']) {
-    cmd.run('chmod 777 ./git.sh') 
-    cmd.get('./git.sh', (err, data) => {  // Run our script
-      if (data) console.log(data)
-      if (err) console.log(err)
+  if (req.headers['x-github-event'] === 'push' && sig === req.headers['x-hub-signature']) {
+    cmd.run('chmod 777 ./git.sh'); 
+    
+    cmd.get('./git.sh', (err, data) => {  
+      if (data) {
+        console.log(data);
+      }
+      if (err) {
+        console.log(err);
+      }
     })
 
-    cmd.run('refresh')
+    cmd.run('refresh');
   }
 
-  return res.sendStatus(200)
+  return res.sendStatus(200);
 }
 
-app.post('/git', onWebhook)
+app.post('/git', onWebhook);
 ```
 
 6. Open the `.env` file and set a SECRET:
@@ -88,11 +93,13 @@ cat .ssh/id_rsa.pub
 13. Check the 'Allow write access' box too.
 14. Now open the webhooks section and add a new webhook:
 
-- **Payload URL**: https://PROJECT_NAME.glitch.me/git
-- **Content type**: `application/json`
-- **Secret**: use the SECRET you set up in your glitch project
-- The rest of the defaults are ok.
-    
+```markdown
+**Payload URL**: `https://PROJECT_NAME.glitch.me/git`
+**Content type**: `application/json`
+**Secret**: `use the SECRET you set up in your glitch project`
+```
+*The rest of the defaults are ok.*
+
 15. Go back to your glitch project and click export your project to GitHub.
 16. Clone your repo in your dev machine and merge the `glitch` branch with master:
 
