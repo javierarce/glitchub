@@ -45,7 +45,9 @@ app.post('/git', onWebhook)
 
 6. Open the `.env` file and set a SECRET:
 
-`SECRET=cirrus-socrates-particle-decibel-hurricane-dolphin-tulip`
+```bash
+SECRET=cirrus-socrates-particle-decibel-hurricane-dolphin-tulip
+```
 
 7. Create a `git.sh` file and add:
 
@@ -66,13 +68,17 @@ git pull origin master --force
 
 8. Open the glitch console for your project and generate a new SSH key with:
 
-`ssh-keygen`
+```bash 
+ssh-keygen
+```
 
 *Just press `<Enter>` to accept all the questions.*
 
 9. Read the content of the `.ssh/id_rsa.pub` file:
 
-`cat .ssh/id_rsa.pub`
+```bash 
+cat .ssh/id_rsa.pub
+```
 
 *Then copy the string to your clipboard.*
 
