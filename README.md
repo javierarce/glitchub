@@ -1,6 +1,6 @@
 # glitchub
 
-Here's how to connect Glitch and Github together:
+Here's how to connect Glitch and GitHub together:
 
 1. Go to [glitch.com](http://glitch.com) and create a new `hello-express` app.
 2. Open the `package.json` file and add the following packages:
@@ -8,7 +8,7 @@ Here's how to connect Glitch and Github together:
   - `node-cmd`
   - `body-parser`
 
-3. Go to your `server.js` file load the following libraries:
+3. Open the `server.js` file and load the following libraries:
 
 ```js
 const cmd = require('node-cmd');
@@ -18,9 +18,9 @@ const bodyParser = require('body-parser');
 
 4. Look for `app.use(express.static('public'));` and add the following line below:
 
-`app.use(bodyParser.json())`
+`app.use(bodyParser.json());`
 
-5. Create a post endpoint to receive the Github webhook:
+5. Create a post endpoint to receive the GitHub webhook:
 
 ```js
 const onWebhook = (req, res) => {
@@ -54,7 +54,7 @@ app.post('/git', onWebhook);
 SECRET=cirrus-socrates-particle-decibel-hurricane-dolphin-tulip
 ```
 
-7. Create a `git.sh` file and add:
+7. Create a `git.sh` file adding the following lines:
 
 ```bash
 #/bin/sh
@@ -79,7 +79,7 @@ ssh-keygen
 
 *Just press `<Enter>` to accept all the questions.*
 
-9. Read the content of the `.ssh/id_rsa.pub` file:
+9. Read the content of the `.ssh/id_rsa.pub` file with:
 
 ```bash 
 cat .ssh/id_rsa.pub
@@ -87,27 +87,28 @@ cat .ssh/id_rsa.pub
 
 *Then copy the string to your clipboard.*
 
-10. Create a new Github repo with a `README.me` file (or any other file, it's important that the project is not empty)
-11. Go to the `deploy keys` section of the settings page of your project.
-12. Click on `Add deploy key` and add the SSH key you generated in the previous step in the key field and 'glitch.com' in the title field.
+10. Create a new GitHub repo with a `README.me` file (or any other file, it's important that the project is not empty).
+11. Go to the `deploy keys` section of the settings page of your GitHub project.
+12. Click on `Add deploy key` and add the SSH key you generated in the step #8; add `glitch.com` in the title field.
 13. Check the `Allow write access` box too.
-14. Now open the `webhooks` section and add a new webhook:
+14. Now open the `webhooks` section and add a new webhook (replacing `PROJECT_NAME` with your actual project name):
 
 ```html
 Payload URL: https://PROJECT_NAME.glitch.me/git
 Content type: application/json
 Secret: use the SECRET you set up in your glitch project
 ```
-*The rest of the defaults are ok.*
+*The rest of the defaults are OK.*
 
-15. Go back to your Glitch project and click export your project to GitHub.
-16. Clone your repo in your dev machine and merge the `glitch` branch with master:
+15. Go back to your Glitch project and export your project to GitHub (that will create a new `glitch` branch in your GitHub repo): Tools > Git, Import, and Export > Export to GitHub.
+
+16. Clone your repo in your dev machine and merge the newly created `glitch` branch with the master branch:
 
 ```bash 
 git merge glitch
 ```
 
-17. In the Glitch console set the remote origin to the master branch of your github project:
+17. In the Glitch console, set the remote origin to the master branch of your GitHub project:
 
 ```bash
 git remote add origin git@github.com:USERNAME/PROJECT.git
