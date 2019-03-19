@@ -93,10 +93,10 @@ cat .ssh/id_rsa.pub
 13. Check the 'Allow write access' box too.
 14. Now open the webhooks section and add a new webhook:
 
-```markdown
-**Payload URL**: `https://PROJECT_NAME.glitch.me/git`
-**Content type**: `application/json`
-**Secret**: `use the SECRET you set up in your glitch project`
+```html
+Payload URL: https://PROJECT_NAME.glitch.me/git
+Content type: application/json
+Secret: use the SECRET you set up in your glitch project
 ```
 *The rest of the defaults are ok.*
 
