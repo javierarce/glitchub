@@ -62,19 +62,19 @@ git reset --hard origin/master
 git pull origin master --force
 ```
 
-> This file will be in charge of pulling the changes from your Github repo.
+*This file will be in charge of pulling the changes from your Github repo.*
 
 8. Open the glitch console for your project and generate a new SSH key with:
 
 `ssh-keygen`
 
-> Just press `<Enter>` to accept all the questions.
+*Just press `<Enter>` to accept all the questions.*
 
 9. Read the content of the `.ssh/id_rsa.pub` file:
 
 `cat .ssh/id_rsa.pub`
 
-> Then copy the string to your clipboard.
+*Then copy the string to your clipboard.*
 
 10. Create a new Github repo with a `README.me` file (or any other file, it's important that the project is not empty)
 11. Go to the 'deploy keys' section of the settings page of your project.
