@@ -1,6 +1,4 @@
-# glitchub
-
-Here's how to connect Glitch and GitHub together:
+# How to keep a Glitch project in sync with a GitHub repo
 
 1. Go to [glitch.com](http://glitch.com) and create a new `hello-express` app.
 2. Open the `package.json` file and add the following packages:
@@ -121,22 +119,20 @@ git branch --set-upstream-to=origin/master master
 If everything is ok, your Glitch project should be updated and a `hello.txt` file should appear in the list of files.   
 If you don't see it, checkout the log of your Glitch project.
 
-## Updating your project from Github to Glitch
+# Updating your project from GitHub → Glitch
 
 This should be the default method of updating your project. Develop in your dev machine, commit the changes and do a `git push`
 
-## Updating your project from Glitch to Github
+# Updating your project from Glitch → GitHub
 
-If you change something in Glitch, first you'll need to export your project to github and then merge the `glitch` branch with your master branch.
+If you change something in Glitch, first you'll need to export your project to GitHub and then merge the `glitch` branch with your master branch.
 
 ```bash 
 git merge glitch
 git push
 ```
 
----
-
-### Credits
+# Credits
 
 While I've detailed all the steps and added  information on how to add a deploy key, the overall solution (including the `git.sh` and webhook sync code) comes from [this post by @jarvis394 on the glitch forum](https://support.glitch.com/t/tutorial-how-to-auto-update-your-project-with-github/8124). 
 
