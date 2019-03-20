@@ -1,5 +1,7 @@
 # How to keep a Glitch project in sync with a GitHub repo
 
+You can follow these first six steps or [remix this glitch project](https://glitch.com/~glitchub) and jump to step #7.
+
 1. Go to [glitch.com](http://glitch.com) and create a new `hello-express` app.
 2. Open the `package.json` file and add the following packages:
 
@@ -46,13 +48,7 @@ const onWebhook = (req, res) => {
 app.post('/git', onWebhook);
 ```
 
-6. Open the `.env` file and set a SECRET:
-
-```bash
-SECRET=cirrus-socrates-particle-decibel-hurricane-dolphin-tulip
-```
-
-7. Create a `git.sh` file adding the following lines:
+6. Create a `git.sh` file adding the following lines:
 
 ```bash
 #/bin/sh
@@ -68,6 +64,14 @@ git pull origin master --force
 ```
 
 *This file will be in charge of pulling the changes from your Github repo.*
+
+----
+
+7. Open the `.env` file and set a SECRET:
+
+```bash
+SECRET=cirrus-socrates-particle-decibel-hurricane-dolphin-tulip
+```
 
 8. Open the glitch console for your project and generate a new SSH key with:
 
