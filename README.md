@@ -1,6 +1,6 @@
 # How to keep a Glitch project in sync with a GitHub repo
 
-You can follow these first six steps or [remix this glitch project](https://glitch.com/~glitchub) and jump to step #7.
+You can follow these first six steps below or just [remix this glitch project](https://glitch.com/~glitchub) and jump to step #7.
 
 1. Go to [glitch.com](http://glitch.com) and create a new `hello-express` app.
 2. Open the `package.json` file and add the following packages:
