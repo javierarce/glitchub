@@ -1,9 +1,8 @@
 # How to keep a Glitch project in sync with a GitHub repo
 
-You can follow these first six steps below or just [remix this glitch project](https://glitch.com/~glitchub) and jump to step #7.
+You can follow these first six steps below or just [remix this glitch project](https://glitch.com/~glitchub) and continue in the next section.
 
 <details><summary>Show initial steps</summary>
-
 
 1. Go to [glitch.com](http://glitch.com) and create a new `hello-express` app.
 2. Open the `package.json` file and add the following packages:
@@ -67,7 +66,6 @@ git pull origin master --force
 ```
 
 *This file will be in charge of pulling the changes from your Github repo.*
-
 </details>
 
 1. Open the `.env` file and set a SECRET:
