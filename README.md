@@ -4,6 +4,7 @@ You can follow these first six steps below or just [remix this glitch project](h
 
 <details><summary>Show initial steps</summary>
 
+
 1. Go to [glitch.com](http://glitch.com) and create a new `hello-express` app.
 2. Open the `package.json` file and add the following packages:
 
