@@ -2,6 +2,9 @@
 
 You can follow these first six steps below or just [remix this glitch project](https://glitch.com/~glitchub) and jump to step #7.
 
+<details><summary>Show initial steps</summary>
+
+
 1. Go to [glitch.com](http://glitch.com) and create a new `hello-express` app.
 2. Open the `package.json` file and add the following packages:
 
@@ -65,15 +68,15 @@ git pull origin master --force
 
 *This file will be in charge of pulling the changes from your Github repo.*
 
-----
+</details>
 
-7. Open the `.env` file and set a SECRET:
+1. Open the `.env` file and set a SECRET:
 
 ```bash
 SECRET=cirrus-socrates-particle-decibel-hurricane-dolphin-tulip
 ```
 
-8. Open the glitch console for your project and generate a new SSH key with:
+2. Open the glitch console for your project and generate a new SSH key with:
 
 ```bash 
 ssh-keygen
@@ -81,7 +84,7 @@ ssh-keygen
 
 *Just press `<Enter>` to accept all the questions.*
 
-9. Read the content of the `.ssh/id_rsa.pub` file with:
+3. Read the content of the `.ssh/id_rsa.pub` file with:
 
 ```bash 
 cat .ssh/id_rsa.pub
@@ -89,11 +92,11 @@ cat .ssh/id_rsa.pub
 
 *Then copy the string to your clipboard.*
 
-10. Create a new GitHub repo with a `README.me` file (or any other file, it's important that the project is not empty).
-11. Go to the `deploy keys` section of the settings page of your GitHub project.
-12. Click on `Add deploy key` and add the SSH key you generated in the step #8; add `glitch.com` in the title field.
-13. Check the `Allow write access` box too.
-14. Now open the `webhooks` section and add a new webhook (replacing `PROJECT_NAME` with your actual project name):
+4. Create a new GitHub repo with a `README.me` file (or any other file, it's important that the project is not empty).
+5. Go to the `deploy keys` section of the settings page of your GitHub project.
+6. Click on `Add deploy key` and add the SSH key you generated in the step #8; add `glitch.com` in the title field.
+7. Check the `Allow write access` box too.
+8. Now open the `webhooks` section and add a new webhook (replacing `PROJECT_NAME` with your actual project name):
 
 ```html
 Payload URL: https://PROJECT_NAME.glitch.me/git
@@ -102,23 +105,23 @@ Secret: use the SECRET you set up in your glitch project
 ```
 *The rest of the defaults are OK.*
 
-15. Go back to your Glitch project and export your project to GitHub (that will create a new `glitch` branch in your GitHub repo): Tools > Git, Import, and Export > Export to GitHub.
+9. Go back to your Glitch project and export your project to GitHub (that will create a new `glitch` branch in your GitHub repo): Tools > Git, Import, and Export > Export to GitHub.
 
-16. Clone your repo in your dev machine and merge the newly created `glitch` branch with the master branch:
+10. Clone your repo in your dev machine and merge the newly created `glitch` branch with the master branch:
 
 ```bash 
 git merge glitch
 ```
 
-17. In the Glitch console, set the remote origin to the master branch of your GitHub project:
+11. In the Glitch console, set the remote origin to the master branch of your GitHub project:
 
 ```bash
 git remote add origin git@github.com:USERNAME/PROJECT.git
 git branch --set-upstream-to=origin/master master
 ```
 
-18. In your dev machine, add a dummy test file (like `hello.txt`) and commit it.
-19. Push the changes with `git push`. 
+12. In your dev machine, add a dummy test file (like `hello.txt`) and commit it.
+13. Push the changes with `git push`. 
 
 If everything is ok, your Glitch project should be updated and a `hello.txt` file should appear in the list of files.   
 If you don't see it, checkout the log of your Glitch project.
