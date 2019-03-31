@@ -106,17 +106,19 @@ Secret: use the SECRET you set up in your glitch project
 
 9. Go back to your Glitch project and export your project to GitHub (that will create a new `glitch` branch in your GitHub repo): Tools > Git, Import, and Export > Export to GitHub.
 
-10. Clone your repo in your dev machine and merge the newly created `glitch` branch with the master branch:
-
-```bash 
-git merge glitch
-```
-
-11. In the Glitch console, set the remote origin to the master branch of your GitHub project:
+10. In the Glitch console, set the remote origin to the master branch of your GitHub project:
 
 ```bash
 git remote add origin git@github.com:USERNAME/PROJECT.git
+git pull
 git branch --set-upstream-to=origin/master master
+```
+
+11. Clone your repo in your dev machine and merge the newly created `glitch` branch with the master branch:
+
+```bash 
+git fetch
+git merge master origin/glitch
 ```
 
 12. In your dev machine, add a dummy test file (like `hello.txt`) and commit it.
