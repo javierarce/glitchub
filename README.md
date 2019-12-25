@@ -120,12 +120,13 @@ git branch --set-upstream-to=origin/master master
 git fetch
 git merge master origin/glitch
 ```
+# Testing 
 
-12. In your dev machine, add a dummy test file (like `hello.txt`) and commit it.
-13. Push the changes with `git push`. 
+1. In your dev machine, create a dummy test file (like `hello.txt`) and commit it.
+2. Push the changes with `git push`. 
 
-If everything is ok, your Glitch project should be updated and a `hello.txt` file should appear in the list of files.   
-If you don't see it, checkout the log of your Glitch project.
+If everything is OK, your Glitch project should be updated, and a `hello.txt` file should appear in the list of files.   
+If you don't see it, have a look to the log of your Glitch project.
 
 # Updating your project from GitHub → Glitch
 
